@@ -1,0 +1,40 @@
+[Unit]
+Description=Jarvis AI Assistant
+Documentation=https://github.com/your-repo/jarvis
+After=network-online.target graphical-session.target pulseaudio.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/linuxuser/Projects/jarvis/.venv/bin/python -m core.main
+WorkingDirectory=/home/linuxuser/Projects/jarvis
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=PULSE_RUNTIME_PATH=/run/user/1000/pulse
+
+# Resource limits
+MemoryMax=2G
+CPUQuota=80%
+
+# Security hardening
+NoNewPrivileges=false
+ProtectSystem=strict
+ReadWritePaths=/home/linuxuser/.local/share/jarvis
+ReadWritePaths=/tmp
+PrivateTmp=false
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=jarvis
+
+[Install]
+WantedBy=default.target
