@@ -1,0 +1,60 @@
+# 🔹 Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 🔹 Virtual environment
+.venv/
+venv/
+env/
+
+# 🔹 Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 🔹 Logs
+*.log
+
+# 🔹 OS files
+.DS_Store
+Thumbs.db
+
+# 🔹 VS Code / IDE
+.vscode/
+.idea/
+
+# 🔹 Environment variables
+.env
+.env.*
+
+# 🔹 Audio files (optional - if large or private)
+*.wav
+*.mp3
+
+# OR (better control)
+data/wake_word/*
+!data/wake_word/positive/
+!data/wake_word/negative/
+
+# 🔹 Model / AI files (if any large downloads)
+*.onnx
+*.bin
+*.gguf
+
+# 🔹 Build / dist
+build/
+dist/
+*.egg-info/
+
+# 🔹 Temporary files
+*.tmp
+*.temp
+
+# 🔹 SQLite / DB (your memory system)
+*.db
+
+# 🔹 System-specific
+*.swp
+*.swo

@@ -21,9 +21,9 @@ audio:
   ambient_adjust_duration: 0.5  # seconds to calibrate ambient noise
 
 wake_word:
-  engine: "openwakeword"
-  model: "hey_jarvis"           # OpenWakeWord model name
-  sensitivity: 0.2              # 0.0 (most sensitive) to 1.0 (least)
+  engine: "vosk"
+  # Path to the Vosk model directory (supports ~ expansion).
+  model_dir: "data/vosk/vosk-model-en-us-0.22-lgraph"
   cooldown: 2.0                 # seconds to ignore after activation
 
 stt:
